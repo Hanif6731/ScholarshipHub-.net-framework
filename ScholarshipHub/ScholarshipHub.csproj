@@ -112,11 +112,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\UniversityController.cs" />
+    <Compile Include="Controllers\UniversityOfferController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Admin.cs">
-      <DependentUpon>ScholarshipHubModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ApplicationsToOrganization.cs">
       <DependentUpon>ScholarshipHubModel.tt</DependentUpon>
@@ -175,6 +175,10 @@
       <DependentUpon>ScholarshipHubModel.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Login\RegistrationChoice.cshtml" />
+    <Content Include="Views\UniversityOffer\Create.cshtml" />
+    <Content Include="Views\University\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -184,7 +188,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

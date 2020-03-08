@@ -5,15 +5,6 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="ScholarshipHubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Admins">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Status" Type="int" Nullable="false" />
-        </EntityType>
         <EntityType Name="ApplicationsToOrganization">
           <Key>
             <PropertyRef Name="id" />
@@ -141,17 +132,14 @@
           <Property Name="StartDate" Type="date" Nullable="false" />
           <Property Name="UniversityId" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'ScholarshipHub.dbo.Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Users">
           <Key>
-            <PropertyRef Name="username" />
-            <PropertyRef Name="password" />
-            <PropertyRef Name="status" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_ApplicationsToOrganization_OrganizationOffers">
           <End Role="OrganizationOffers" Type="Self.OrganizationOffers" Multiplicity="1" />
@@ -226,7 +214,6 @@ warning 6002: The table/view 'ScholarshipHub.dbo.Users' does not have a primary 
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ScholarshipHubModelStoreContainer">
-          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ApplicationsToOrganization" EntityType="Self.ApplicationsToOrganization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ApplictionsToUniversity" EntityType="Self.ApplictionsToUniversity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Messeges" EntityType="Self.Messeges" Schema="dbo" store:Type="Tables" />
@@ -236,13 +223,7 @@ warning 6002: The table/view 'ScholarshipHub.dbo.Users' does not have a primary 
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Universities" EntityType="Self.Universities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UniversityOffers" EntityType="Self.UniversityOffers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Users].[username] AS [username], 
-    [Users].[password] AS [password], 
-    [Users].[status] AS [status]
-    FROM [dbo].[Users] AS [Users]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ApplicationsToOrganization_OrganizationOffers" Association="Self.FK_ApplicationsToOrganization_OrganizationOffers">
             <End Role="OrganizationOffers" EntitySet="OrganizationOffers" />
             <End Role="ApplicationsToOrganization" EntitySet="ApplicationsToOrganization" />
@@ -273,15 +254,6 @@ warning 6002: The table/view 'ScholarshipHub.dbo.Users' does not have a primary 
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ScholarshipHubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Admin">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Status" Type="Int32" Nullable="false" />
-        </EntityType>
         <EntityType Name="ApplicationsToOrganization">
           <Key>
             <PropertyRef Name="id" />
@@ -423,13 +395,12 @@ warning 6002: The table/view 'ScholarshipHub.dbo.Users' does not have a primary 
         </EntityType>
         <EntityType Name="User">
           <Key>
-            <PropertyRef Name="username" />
-            <PropertyRef Name="password" />
-            <PropertyRef Name="status" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="FK_ApplicationsToOrganization_OrganizationOffers">
           <End Role="OrganizationOffers" Type="Self.OrganizationOffer" Multiplicity="1" />
@@ -504,7 +475,6 @@ warning 6002: The table/view 'ScholarshipHub.dbo.Users' does not have a primary 
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ScholarshipHubDataContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="ApplicationsToOrganizations" EntityType="Self.ApplicationsToOrganization" />
           <EntitySet Name="ApplictionsToUniversities" EntityType="Self.ApplictionsToUniversity" />
           <EntitySet Name="Messeges" EntityType="Self.Messege" />
@@ -546,16 +516,6 @@ warning 6002: The table/view 'ScholarshipHub.dbo.Users' does not have a primary 
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ScholarshipHubModelStoreContainer" CdmEntityContainer="ScholarshipHubDataContext">
-          <EntitySetMapping Name="Admins">
-            <EntityTypeMapping TypeName="ScholarshipHubModel.Admin">
-              <MappingFragment StoreEntitySet="Admins">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ApplicationsToOrganizations">
             <EntityTypeMapping TypeName="ScholarshipHubModel.ApplicationsToOrganization">
               <MappingFragment StoreEntitySet="ApplicationsToOrganization">
@@ -695,9 +655,10 @@ warning 6002: The table/view 'ScholarshipHub.dbo.Users' does not have a primary 
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="ScholarshipHubModel.User">
               <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="username" ColumnName="username" />
-                <ScalarProperty Name="password" ColumnName="password" />
-                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -25,7 +25,6 @@ namespace ScholarshipHub.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<ApplicationsToOrganization> ApplicationsToOrganizations { get; set; }
         public virtual DbSet<ApplictionsToUniversity> ApplictionsToUniversities { get; set; }
         public virtual DbSet<Messege> Messeges { get; set; }

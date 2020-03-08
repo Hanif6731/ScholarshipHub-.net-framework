@@ -1,16 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ScholarshipHubModelStoreContainer" CdmEntityContainer="ScholarshipHubDataContext">
-    <EntitySetMapping Name="Admins">
-      <EntityTypeMapping TypeName="ScholarshipHubModel.Admin">
-        <MappingFragment StoreEntitySet="Admins">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="Status" ColumnName="Status" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ApplicationsToOrganizations">
       <EntityTypeMapping TypeName="ScholarshipHubModel.ApplicationsToOrganization">
         <MappingFragment StoreEntitySet="ApplicationsToOrganization">
@@ -150,9 +140,10 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="ScholarshipHubModel.User">
         <MappingFragment StoreEntitySet="Users">
-          <ScalarProperty Name="username" ColumnName="username" />
-          <ScalarProperty Name="password" ColumnName="password" />
-          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

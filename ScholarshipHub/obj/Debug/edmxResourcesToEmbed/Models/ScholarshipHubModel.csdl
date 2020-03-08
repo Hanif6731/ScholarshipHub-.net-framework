@@ -1,14 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ScholarshipHubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Admin">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Status" Type="Int32" Nullable="false" />
-  </EntityType>
   <EntityType Name="ApplicationsToOrganization">
     <Key>
       <PropertyRef Name="id" />
@@ -150,13 +141,12 @@
   </EntityType>
   <EntityType Name="User">
     <Key>
-      <PropertyRef Name="username" />
-      <PropertyRef Name="password" />
-      <PropertyRef Name="status" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK_ApplicationsToOrganization_OrganizationOffers">
     <End Role="OrganizationOffers" Type="Self.OrganizationOffer" Multiplicity="1" />
@@ -231,7 +221,6 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="ScholarshipHubDataContext" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Admins" EntityType="Self.Admin" />
     <EntitySet Name="ApplicationsToOrganizations" EntityType="Self.ApplicationsToOrganization" />
     <EntitySet Name="ApplictionsToUniversities" EntityType="Self.ApplictionsToUniversity" />
     <EntitySet Name="Messeges" EntityType="Self.Messege" />
