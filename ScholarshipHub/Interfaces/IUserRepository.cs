@@ -10,6 +10,6 @@ namespace ScholarshipHub.Interfaces
     interface IUserRepository:IRepository<User>
     {
         int Get(User user);
-        User GetUser(User user);
+        User GetUser(string username);
     }
 }

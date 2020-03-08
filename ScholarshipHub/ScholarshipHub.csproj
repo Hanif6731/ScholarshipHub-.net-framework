@@ -185,6 +185,8 @@
     <Content Include="Views\Login\RegistrationChoice.cshtml" />
     <Content Include="Views\UniversityOffer\Create.cshtml" />
     <Content Include="Views\University\Create.cshtml" />
+    <Content Include="Views\University\Index.cshtml" />
+    <Content Include="Views\University\Edit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

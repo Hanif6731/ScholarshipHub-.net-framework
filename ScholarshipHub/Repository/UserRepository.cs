@@ -14,9 +14,9 @@ namespace ScholarshipHub.Repository
             return base.context.Set<User>().Where(u => u.Username == user.Username && u.Password == user.Password).ToList().Count();
         }
 
-        public User GetUser(User user)
+        public User GetUser(string username)
         {
-            return base.context.Set<User>().SingleOrDefault(u => u.Username == user.Username && u.Password == user.Password);
+            return base.context.Set<User>().SingleOrDefault(u => u.Username == username );
         }
     }
 }

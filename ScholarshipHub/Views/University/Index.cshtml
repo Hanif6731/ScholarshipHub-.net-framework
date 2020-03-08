@@ -1,0 +1,129 @@
+﻿@model ScholarshipHub.Models.University
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <table width="100%">
+            <tr>
+                <td>
+                    <h4>Scholarship Hub | University</h4>
+                </td>
+                <td align="right">
+                    @Html.ActionLink("Edit University profile", "Edit", new { id = Model.id })|@Html.ActionLink("Logout", "Logout", "Login")
+                </td>
+            </tr>
+        </table>
+        <hr />
+        <dl class="dl-horizontal">
+            
+    
+            <dt>
+                @Html.DisplayFor(model => model.Name)
+            </dt>
+    
+            
+    
+            <dt>
+                #@Html.DisplayFor(model => model.username)
+            </dt>
+    
+            
+    
+            
+    
+            <dt>
+                @Html.DisplayFor(model => model.email)
+            </dt>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Contact)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Contact)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AddressLine)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AddressLine)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Contry)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Contry)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Zip)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Zip)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Motto)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Motto)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Mission)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Mission)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Vision)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Vision)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.descripton)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.descripton)
+            </dd>
+    
+            
+    
+        </dl>
+
+        <h5>Approval</h5>
+        <iframe src="~/Media/Files/@Model.ApprovalPath"  width="100%" height="500" />
+    </div>
+    
+</body>
+</html>

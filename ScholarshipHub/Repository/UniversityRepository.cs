@@ -7,8 +7,11 @@ using System.Web;
 
 namespace ScholarshipHub.Repository
 {
-    public class UniversityRepository:Repository<University>,IUniversityRepository
+    public class UniversityRepository : Repository<University>, IUniversityRepository
     {
-
+        public University GetUniversity(string username)
+        {
+            return context.Set<University>().SingleOrDefault(u => u.username == username);
+        }
     }
 }

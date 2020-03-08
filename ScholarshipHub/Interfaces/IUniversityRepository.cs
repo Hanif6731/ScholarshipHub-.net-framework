@@ -9,5 +9,6 @@ namespace ScholarshipHub.Interfaces
 {
     interface IUniversityRepository:IRepository<University>
     {
+        University GetUniversity(string username);
     }
 }

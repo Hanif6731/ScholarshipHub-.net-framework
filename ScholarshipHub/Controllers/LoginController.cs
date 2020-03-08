@@ -24,7 +24,7 @@ namespace ScholarshipHub.Controllers
         {
             if (userRepo.Get(u) == 1)
             {
-                var user = userRepo.GetUser(u);
+                var user = userRepo.GetUser(u.Username);
                 Session["Username"] = u.Username;
                 if (user.Status == 0)
                 {
@@ -43,8 +43,9 @@ namespace ScholarshipHub.Controllers
                     return RedirectToAction("Index", "Organization");
                 }
             }
-            //return RedirectToAction("");
-            return Content("Login Under development... admin status 0, student status 1, university status 2, organisation status 3... happy coding");
+            TempData["error"] = "Wrong Credentials!!";
+            return RedirectToAction("Login");
+            //return Content("Login Under development... admin status 0, student status 1, university status 2, organisation status 3... happy coding");
         }
 
         [HttpGet]
