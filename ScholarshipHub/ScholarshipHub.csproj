@@ -118,6 +118,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IUniversityRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Models\ApplicationsToOrganization.cs">
       <DependentUpon>ScholarshipHubModel.tt</DependentUpon>
     </Compile>
@@ -164,6 +167,9 @@
       <DependentUpon>ScholarshipHubModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\UniversityRepository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -188,10 +194,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Media\Files\" />
     <Folder Include="Media\Images\" />
-    <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
