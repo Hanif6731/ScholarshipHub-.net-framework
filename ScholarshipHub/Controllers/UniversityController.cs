@@ -19,6 +19,7 @@ namespace ScholarshipHub.Controllers
         public ActionResult Index()
         {
             var uni = uniRepo.GetUniversity(@Session["username"].ToString());
+            Session["universityId"] = uni.id;
             return View(uni);
             //return Content("Under development");
         }
