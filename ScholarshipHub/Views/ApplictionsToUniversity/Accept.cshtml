@@ -1,0 +1,99 @@
+﻿@model ScholarshipHub.Models.ApplictionsToUniversity
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Accept</title>
+</head>
+<body>
+    <h3>Confirm to accept this application.</h3>
+    <div>
+        <h4>ApplictionsToUniversity</h4>
+        <hr />
+        <table width="100%">
+            <tr>
+                <td>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.UniversityOffer.Title)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.UniversityOffer.Title)
+                        </dd>
+
+                        <dd>
+                            <img src="~/Media/Images/@Model.Student.ImagePath" style="width:200px;height:auto" />
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Student.Name)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Student.Name)
+                        </dd>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Motivation)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Motivation)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.StudentBio)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.StudentBio)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.AplicationStatus)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.AplicationStatus)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.ApplicationInformation)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.ApplicationInformation)
+                        </dd>
+                        
+
+
+
+
+                    </dl>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-actions no-color">
+                            <input type="submit" value="Confirm" class="btn btn-default" /> |
+                            @Html.ActionLink("Back to List", "Index", new { uniOfferId = Model.UniversityOfferID })
+                        </div>
+                    }
+                </td>
+                <td align="center">
+                    <h4>CV</h4>
+                    <iframe src="~/Media/Files/@Model.Student.CVPath" width="100%" height="700px" />
+                </td>
+            </tr>
+        </table>
+
+        
+    </div>
+</body>
+</html>

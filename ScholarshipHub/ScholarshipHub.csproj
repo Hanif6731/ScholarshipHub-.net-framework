@@ -209,6 +209,10 @@
     <Content Include="Views\ApplictionsToUniversity\Index.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\ApplictionsToUniversity\Details.cshtml" />
+    <Content Include="Views\ApplictionsToUniversity\Comment.cshtml" />
+    <Content Include="Views\ApplictionsToUniversity\Accept.cshtml" />
+    <Content Include="Views\ApplictionsToUniversity\Reject.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -220,7 +224,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Media\Files\" />
     <Folder Include="Media\Images\" />
-    <Folder Include="Views\ApplicationsToUniversty\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

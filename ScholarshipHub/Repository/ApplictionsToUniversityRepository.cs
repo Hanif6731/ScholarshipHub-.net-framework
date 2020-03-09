@@ -11,7 +11,7 @@ namespace ScholarshipHub.Repository
     {
         public IEnumerable<ApplictionsToUniversity> GetAll(int uniOfferId)
         {
-            return context.Set<ApplictionsToUniversity>().Where(u => u.UniversityOfferID == uniOfferId).ToList();
+            return context.Set<ApplictionsToUniversity>().Where(u => u.UniversityOfferID == uniOfferId && (u.AplicationStatus!=0)).ToList();
         }
     }
 }
