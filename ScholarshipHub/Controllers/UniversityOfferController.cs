@@ -28,5 +28,37 @@ namespace ScholarshipHub.Controllers
             uniOfferRepo.Insert(offer);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            return View(uniOfferRepo.Get(id));
+        }
+        [HttpPost]
+        public ActionResult Edit(UniversityOffer offer)
+        {
+            uniOfferRepo.Update(offer);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            return View(uniOfferRepo.Get(id));
+        }
+        [HttpPost,ActionName("Delete")]
+        public ActionResult ConfirmDelete(int id)
+        {
+            uniOfferRepo.Delete(id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            return View(uniOfferRepo.Get(id));
+        }
+
+
     }
 }

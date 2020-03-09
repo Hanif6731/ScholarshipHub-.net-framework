@@ -190,6 +190,9 @@
     <Content Include="Views\University\Index.cshtml" />
     <Content Include="Views\University\Edit.cshtml" />
     <Content Include="Views\UniversityOffer\Index.cshtml" />
+    <Content Include="Views\UniversityOffer\Edit.cshtml" />
+    <Content Include="Views\UniversityOffer\Delete.cshtml" />
+    <Content Include="Views\UniversityOffer\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
