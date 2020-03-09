@@ -59,6 +59,12 @@ namespace ScholarshipHub.Controllers
             return View(uniOfferRepo.Get(id));
         }
 
+        [HttpGet]
+        public ActionResult AppsToUniOffer(int uniOfferId)
+        {
+            return RedirectToAction("index", "ApplictionsToUniversity", new {uniOfferId});
+        }
+
 
     }
 }

@@ -112,14 +112,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ApplictionsToUniversityController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UniversityController.cs" />
     <Compile Include="Controllers\UniversityOfferController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IOrganisationRepository.cs" />
+    <Compile Include="Interfaces\IOrganizationOfferRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IStudentRepository.cs" />
     <Compile Include="Interfaces\IUniversityOfferRepository.cs" />
+    <Compile Include="Interfaces\IApplictionsToUniversityRepository.cs" />
     <Compile Include="Interfaces\IUniversityRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Models\ApplicationsToOrganization.cs">
@@ -168,7 +175,11 @@
       <DependentUpon>ScholarshipHubModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ApplictionsToUniversityRepository.cs" />
+    <Compile Include="Repository\OrganisationRepository.cs" />
+    <Compile Include="Repository\OrganizationOfferRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\StudentRepository.cs" />
     <Compile Include="Repository\UniversityOfferRepository.cs" />
     <Compile Include="Repository\UniversityRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
@@ -186,13 +197,18 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\RegistrationChoice.cshtml" />
     <Content Include="Views\UniversityOffer\Create.cshtml" />
-    <Content Include="Views\University\Create.cshtml" />
     <Content Include="Views\University\Index.cshtml" />
     <Content Include="Views\University\Edit.cshtml" />
     <Content Include="Views\UniversityOffer\Index.cshtml" />
     <Content Include="Views\UniversityOffer\Edit.cshtml" />
     <Content Include="Views\UniversityOffer\Delete.cshtml" />
     <Content Include="Views\UniversityOffer\Details.cshtml" />
+    <Content Include="Views\Registration\CreateStudent.cshtml" />
+    <Content Include="Views\Registration\Index.cshtml" />
+    <Content Include="Views\Registration\CreateUniversity.cshtml" />
+    <Content Include="Views\ApplictionsToUniversity\Index.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -204,6 +220,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Media\Files\" />
     <Folder Include="Media\Images\" />
+    <Folder Include="Views\ApplicationsToUniversty\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

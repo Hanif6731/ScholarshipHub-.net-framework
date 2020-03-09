@@ -1,0 +1,86 @@
+﻿@model IEnumerable<ScholarshipHub.Models.ApplictionsToUniversity>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <h4>Schloarship Hub | Applications</h4>
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UniversityOffer.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.ImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Motivation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentBio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AplicationStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationInformation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Student.CVPath)
+            </th>
+
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UniversityOffer.Title)
+        </td>
+        <td>
+            <img src="~/Media/Images/@item.Student.ImagePath" style="width:200px;height:auto" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Student.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Motivation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentBio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AplicationStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationInformation)
+        </td>
+
+        <td>
+            @Html.ActionLink("Comment", "Comment", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Reject", "Reject", new { id = item.id })
+            @Html.ActionLink("Accept", "Accept", new { id = item.id })
+        </td>
+        <td>
+            <iframe src="~/Media/Files/@item.Student.CVPath" style="width:200px;height:auto" />
+        </td>
+    </tr>
+    }
+    
+    </table>
+</body>
+</html>

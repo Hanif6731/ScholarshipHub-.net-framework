@@ -1,11 +1,8 @@
 ﻿@model ScholarshipHub.Models.User
-
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -16,13 +13,13 @@
         <h4>Scholarship Hub</h4>
         <hr />
         <div>
-            @Html.ActionLink("Register As an University", "CreateUniversity","Registration")
+            @Html.ActionLink("Register As an University", "Create", "University")
         </div>
         <div>
-            @Html.ActionLink("Register As an Organisation", "OrganizationRegistration","Registration")
+            @Html.ActionLink("Register As an Organisation", "Create", "Organisation")
         </div>
         <div>
-            @Html.ActionLink("Register As a Student", "CreateStudent","Registration")
+            @Html.ActionLink("Register As a Student", "CreateStudent", "Registration")
         </div>
     </div>
 </body>
