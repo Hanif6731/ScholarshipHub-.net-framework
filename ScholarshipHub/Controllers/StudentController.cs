@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ScholarshipHub.Controllers
 {
@@ -17,12 +18,14 @@ namespace ScholarshipHub.Controllers
         IUniversityOfferRepository uniOfferRepo = new UniversityOfferRepository();
         IOrganizationOfferRepository orgfferRepo = new OrganizationOfferRepository();
         IStudentRepository studentRepo = new StudentRepository();
+        
 
         [HttpGet]
         public ActionResult Index()
         {
             var student = studentRepo.GetStudent(@Session["username"].ToString());
             Session["studentId"] = student.id;
+            Session["studentName"] = student.Name;
             return View(student);
         }
         [HttpGet]
@@ -69,19 +72,49 @@ namespace ScholarshipHub.Controllers
             return View(orgfferRepo.GetAll());
         }
         [HttpGet]
-        public ActionResult ApplyToOrganization(int id)
+        public ActionResult ApplyToUniversity(int id)
         {
+            Session["uniOfferId"] = id;
             return View();
+        }
+        [HttpPost]
+        public ActionResult ApplyToUniversity(ApplictionsToUniversity applyToUni)
+        {
+            IApplictionsToUniversityRepository appToUniRepo = new ApplictionsToUniversityRepository();
+            appToUniRepo.Insert(applyToUni);
+
+            return RedirectToAction("UniversityOffer", "Student");
         }
 
         [HttpGet]
-        public ActionResult ApplyToUniversity(int id)
+        public ActionResult ApplyToOrganization(int id)
         {
+            Session["OrgOfferId"] = id;
             return View();
         }
 
+        [HttpPost]
+        public ActionResult ApplyToOrganization(ApplicationsToOrganization applyToOrg)
+        {
+            IApplicationsToOrganizationRepository appToOrgRepo = new ApplicationsToOrganiztionRepository();
+            appToOrgRepo.Insert(applyToOrg);
+
+            return RedirectToAction("ApplationsToOrganization", "Student");
+        }
+
+        public ActionResult ApplicationsToUniversity()
+        {
+            IApplictionsToUniversityRepository appToUniRepo = new ApplictionsToUniversityRepository();
+            return View(appToUniRepo.GetStudentsApplicationToUniversity((int)@Session["studentId"]));
+        }
+
+        public ActionResult ApplicationsToOrganization()
+        {
+            
+            IApplicationsToOrganizationRepository appToUniRepo = new ApplicationsToOrganiztionRepository();
+            return View(appToUniRepo.GetStudentsApplicationToOrganization((int)@Session["studentId"]));
+        }
 
 
-        
     }
 }

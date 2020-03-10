@@ -22,15 +22,13 @@
                     <h4>Scholarship Hub | Offerings</h4>
                 </td>
                 <td align="right">
-                    @Html.ActionLink("Offer new Scholarship Program", "Create")
-                </td>
-                <td align="right" width="40%">
+                    @Html.ActionLink("Offer new Scholarship Program", "Create")| 
                      @Html.ActionLink("Home", "Index", "University")|@Html.ActionLink("Logout", "Logout", "Login")
                 </td>
             </tr>
         </table>
         <hr />
-        <table class="table">
+        <table class="table" border="1">
             <tr>
                 <th>
                     @Html.DisplayNameFor(model => model.Title)
@@ -59,6 +57,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Title)
                     </td>
+
                     <td>
                         @Html.DisplayFor(modelItem => item.Description)
                     </td>

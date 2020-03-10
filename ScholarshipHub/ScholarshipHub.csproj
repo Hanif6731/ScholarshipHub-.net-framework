@@ -112,8 +112,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ApplicationToOrganizationController.cs" />
     <Compile Include="Controllers\ApplictionsToUniversityController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LogoutController.cs" />
+    <Compile Include="Controllers\MessegeController.cs" />
+    <Compile Include="Controllers\OrganisationController.cs" />
+    <Compile Include="Controllers\OrganisationOfferController.cs" />
+    <Compile Include="Controllers\OrganizationMassageController.cs" />
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\UniversityController.cs" />
@@ -121,14 +127,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IApplicationsToOrganizationRepository.cs" />
+    <Compile Include="Interfaces\IApplicationToOrganizationRepository.cs" />
+    <Compile Include="Interfaces\IMessegeRepository.cs" />
     <Compile Include="Interfaces\IOrganisationRepository.cs" />
     <Compile Include="Interfaces\IOrganizationOfferRepository.cs" />
+    <Compile Include="Interfaces\IOrganizationStudentRepository.cs" />
+    <Compile Include="Interfaces\IOrgMessegeRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IStudentRepository.cs" />
     <Compile Include="Interfaces\IUniversityOfferRepository.cs" />
     <Compile Include="Interfaces\IApplictionsToUniversityRepository.cs" />
     <Compile Include="Interfaces\IUniversityRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
+    <Compile Include="Models\Admin.cs">
+      <DependentUpon>ScholarshipHubModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ApplicationsToOrganization.cs">
       <DependentUpon>ScholarshipHubModel.tt</DependentUpon>
     </Compile>
@@ -175,14 +189,20 @@
       <DependentUpon>ScholarshipHubModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ApplicationsToOrganiztionRepository.cs" />
+    <Compile Include="Repository\ApplicationToOrganizationRepository.cs" />
     <Compile Include="Repository\ApplictionsToUniversityRepository.cs" />
+    <Compile Include="Repository\MessegeRepository.cs" />
     <Compile Include="Repository\OrganisationRepository.cs" />
     <Compile Include="Repository\OrganizationOfferRepository.cs" />
+    <Compile Include="Repository\OrganizationStudentRepository.cs" />
+    <Compile Include="Repository\OrgMessegeRepository.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\StudentRepository.cs" />
     <Compile Include="Repository\UniversityOfferRepository.cs" />
     <Compile Include="Repository\UniversityRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Validation\Validate.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -213,6 +233,44 @@
     <Content Include="Views\ApplictionsToUniversity\Comment.cshtml" />
     <Content Include="Views\ApplictionsToUniversity\Accept.cshtml" />
     <Content Include="Views\ApplictionsToUniversity\Reject.cshtml" />
+    <Content Include="Views\Messege\Index.cshtml" />
+    <Content Include="Views\Messege\Details.cshtml" />
+    <Content Include="Views\Messege\Delete.cshtml" />
+    <Content Include="Views\Messege\Create.cshtml" />
+    <Content Include="Views\ApplicationToOrganization\Approve.cshtml" />
+    <Content Include="Views\ApplicationToOrganization\Approvelist.cshtml" />
+    <Content Include="Views\ApplicationToOrganization\Details.cshtml" />
+    <Content Include="Views\ApplicationToOrganization\Reject.cshtml" />
+    <Content Include="Views\ApplicationToOrganization\StudentApplication.cshtml" />
+    <Content Include="Views\OrganisationOffer\Delete.cshtml" />
+    <Content Include="Views\OrganisationOffer\Details.cshtml" />
+    <Content Include="Views\OrganisationOffer\Edit.cshtml" />
+    <Content Include="Views\OrganisationOffer\Offer.cshtml" />
+    <Content Include="Views\OrganisationOffer\Offerlist.cshtml" />
+    <Content Include="Views\Organisation\Address.cshtml" />
+    <Content Include="Views\Organisation\Attachment.cshtml" />
+    <Content Include="Views\Organisation\Index.cshtml" />
+    <Content Include="Views\Organisation\Offer.cshtml" />
+    <Content Include="Views\Organisation\Password.cshtml" />
+    <Content Include="Views\Organisation\Personal.cshtml" />
+    <Content Include="Views\Organisation\Profile.cshtml" />
+    <Content Include="Views\OrganizationMassage\Compose.cshtml" />
+    <Content Include="Views\OrganizationMassage\Delete.cshtml" />
+    <Content Include="Views\OrganizationMassage\DeleteSent.cshtml" />
+    <Content Include="Views\OrganizationMassage\Details.cshtml" />
+    <Content Include="Views\OrganizationMassage\DetailsSent.cshtml" />
+    <Content Include="Views\OrganizationMassage\Index.cshtml" />
+    <Content Include="Views\OrganizationMassage\Reply.cshtml" />
+    <Content Include="Views\OrganizationMassage\SentEmail.cshtml" />
+    <Content Include="Views\OrganizationMassage\ViewEmail.cshtml" />
+    <Content Include="Views\Registration\OrganizationRegistration.cshtml" />
+    <Content Include="Views\Student\ApplicationsToOrganization.cshtml" />
+    <Content Include="Views\Student\ApplicationsToUniversity.cshtml" />
+    <Content Include="Views\Student\Apply.cshtml" />
+    <Content Include="Views\Student\ApplyToOrganization.cshtml" />
+    <Content Include="Views\Student\ApplyToUniversity.cshtml" />
+    <Content Include="Views\Student\OrganizationOffer.cshtml" />
+    <Content Include="Views\Student\UniversityOffer.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -224,6 +282,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Media\Files\" />
     <Folder Include="Media\Images\" />
+    <Folder Include="Organization\Approval\" />
+    <Folder Include="Organization\Information\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

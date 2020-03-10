@@ -1,0 +1,83 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>compose page</title>
+
+</head>
+<body>
+    <center>
+        <p>
+            Date:
+            <script>document.write(new Date().toLocaleDateString());</script>
+        </p>
+        <h1>COMPOSE</h1>
+        <form method="post" enctype="multipart/form-data">
+
+            <table border="1" height="300" width="300">
+
+
+                <tr>
+                    <td>From:</td>
+                    <td>
+                        <input type="text" name="FromUser" value="@Session["Email"] ">
+                    </td>
+
+
+                </tr>
+                <td>TO :</td>
+                <td>
+                    <input type="text" name="ToUser" value="@Model.FromUser" />
+                </td>
+
+                </tr>
+                <tr>
+                    <td>Subject :</td>
+                    <td><input type="text" name="Subject"></td>
+
+                </tr>
+                <tr>
+                    <td>  Email Body :</td>
+
+                    <td>
+                        <textarea name="Body"></textarea>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <center>
+                            <input type="submit" name="submit" value="Sent">
+                        </center>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+
+                        <center>
+                            <b>
+
+                                @Html.ActionLink("Back", "ViewEmail")
+                            </b>
+                        </center>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <h5>@TempData["error"]</h5>
+    </center>
+
+
+</body>
+</html>

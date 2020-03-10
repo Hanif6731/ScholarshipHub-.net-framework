@@ -12,117 +12,76 @@
     <title>Index</title>
 </head>
 <body>
-    <div>
-        <table width="100%">
+    <div width="100%">
+        <table width="100%" border="0">
             <tr>
                 <td>
                     <h4>Scholarship Hub | University</h4>
                 </td>
                 <td align="right">
-                    @Html.ActionLink("Manage scholarship offers", "Index", "UniversityOffer")|@Html.ActionLink("Edit University profile", "Edit", new { id = Model.id })|@Html.ActionLink("Logout", "Logout", "Login")
+                    @Html.ActionLink("Messeges", "Messege", new { email=Model.email})|@Html.ActionLink("Manage scholarship offers", "Index", "UniversityOffer")|@Html.ActionLink("Edit University profile", "Edit", new { id = Model.id })|@Html.ActionLink("Logout", "Logout", "Login")
                 </td>
             </tr>
         </table>
         <hr />
-        <dl class="dl-horizontal">
-            
-    
-            <dt>
-                @Html.DisplayFor(model => model.Name)
-            </dt>
-    
-            
-    
-            <dt>
-                #@Html.DisplayFor(model => model.username)
-            </dt>
-    
-            
-    
-            
-    
-            <dt>
-                @Html.DisplayFor(model => model.email)
-            </dt>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Contact)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Contact)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.AddressLine)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.AddressLine)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Contry)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Contry)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.City)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.City)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Zip)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Zip)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Motto)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Motto)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Mission)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Mission)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Vision)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Vision)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.descripton)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.descripton)
-            </dd>
-    
-            
-    
-        </dl>
+        <div style="float:left; width:48%;vertical-align:middle">
+        <table width="100%" border="1">
+            <tr>
+                <td colspan="2"  align="center"><h4>@Html.DisplayFor(model => model.Name)</h4></td>
+                
+                
+            </tr>
+            <tr>
+                <td align="center">@Html.DisplayNameFor(model => model.username)</td>
+                <td align="left">@Html.DisplayFor(model => model.username)</td>
+            </tr>
+            <tr>
+                <td align="center">@Html.DisplayNameFor(model => model.email)</td>
+                <td align="left">@Html.DisplayFor(model => model.email)</td>
+            </tr>
+            <tr>
+                <td align="center">@Html.DisplayNameFor(model => model.Contact)</td>
+                <td align="left">@Html.DisplayFor(model => model.Contact)</td>
+            </tr>
+            <tr>
+                <td align="center">@Html.DisplayNameFor(model => model.Contry)</td>
+                <td align="left">@Html.DisplayFor(model => model.Contry)</td>
+            </tr>
+            <tr>
+                <td align="center">@Html.DisplayNameFor(model => model.City)</td>
+                <td align="left">@Html.DisplayFor(model => model.City)</td>
+            </tr>
+            <tr>
+                <td align="center">@Html.DisplayNameFor(model => model.Zip)</td>
+                <td align="left">@Html.DisplayFor(model => model.Zip)</td>
+            </tr>
+            <tr>
+                <td align="center">@Html.DisplayNameFor(model => model.Motto)</td>
+                <td align="left">@Html.DisplayFor(model => model.Motto)</td>
+            </tr>
+            <tr>
+                <td align="center">@Html.DisplayNameFor(model => model.Mission)</td>
+                <td align="left">@Html.DisplayFor(model => model.Mission)</td>
+            </tr>
+            <tr>
+                <td align="center">@Html.DisplayNameFor(model => model.Vision)</td>
+                <td align="left">@Html.DisplayFor(model => model.Vision)</td>
+            </tr>
+            <tr>
+                <td align="center">@Html.DisplayNameFor(model => model.descripton)</td>
+                <td align="left">@Html.DisplayFor(model => model.descripton)</td>
+            </tr>
 
-        <h5>Approval</h5>
-        <iframe src="~/Media/Files/@Model.ApprovalPath"  width="100%" height="500" />
+        </table>
+        </div>
+        <div  style="float:right;width:48%;height:500px;text-align:center;vertical-align:middle">
+            
+            <iframe src="~/Media/Files/@Model.ApprovalPath" width="100%" height="100%" />
+        </div>
+
+        
+
+        
     </div>
     
 </body>

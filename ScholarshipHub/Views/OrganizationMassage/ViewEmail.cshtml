@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ScholarshipHub.Models.Messege>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ViewEmail</title>
+</head>
+<body>
+    <center>
+        <p>
+            @Html.ActionLink("Compose Email", "Compose")
+        </p>
+        <table class="table" border="1">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FromUser)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ToUser)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subject)
+                </th>
+
+
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FromUser)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ToUser)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject)
+                    </td>
+
+
+                    <td>
+
+                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })||
+                        @Html.ActionLink("Reply", "Reply", new { id = item.id }) |
+                    </td>
+                </tr>
+            }
+
+        </table>
+        @Html.ActionLink("Back", "Index")
+    </center>
+</body>
+</html>

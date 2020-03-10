@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ScholarshipHub.Models.ApplicationsToOrganization>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>StudentApplication</title>
+</head>
+<body>
+    <center>
+        <p>
+            @Html.ActionLink("Approve List", "Approvelist")
+        </p>
+        <table class="table" border="1">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Motivation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentBio)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.OrganizationOffer.title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student.Name)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Motivation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentBio)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrganizationOffer.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Student Profile", "Details", new { id = item.StudentId }) |
+                        @Html.ActionLink("Approve", "Approve", new { id = item.id })||
+                        @Html.ActionLink("Reject", "Reject", new { id = item.id })|
+                    </td>
+                </tr>
+            }
+
+        </table>
+        @Html.ActionLink("Back", "Index")
+    </center>
+ 
+</body>
+</html>

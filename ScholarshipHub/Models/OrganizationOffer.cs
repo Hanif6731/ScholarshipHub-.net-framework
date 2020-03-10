@@ -21,8 +21,6 @@ namespace ScholarshipHub.Models
         }
     
         public int id { get; set; }
-        public string organizationName { get; set; }
-        public string OfferUsername { get; set; }
         public string title { get; set; }
         public string degree { get; set; }
         public string startdate { get; set; }

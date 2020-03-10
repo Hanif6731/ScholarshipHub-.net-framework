@@ -1,6 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ScholarshipHubModelStoreContainer" CdmEntityContainer="ScholarshipHubDataContext">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="ScholarshipHubModel.Admin">
+        <MappingFragment StoreEntitySet="Admins">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="salarystatus" ColumnName="salarystatus" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="ApplicationsToOrganizations">
       <EntityTypeMapping TypeName="ScholarshipHubModel.ApplicationsToOrganization">
         <MappingFragment StoreEntitySet="ApplicationsToOrganization">
@@ -62,8 +75,6 @@
       <EntityTypeMapping TypeName="ScholarshipHubModel.OrganizationOffer">
         <MappingFragment StoreEntitySet="OrganizationOffers">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="organizationName" ColumnName="organizationName" />
-          <ScalarProperty Name="OfferUsername" ColumnName="OfferUsername" />
           <ScalarProperty Name="title" ColumnName="title" />
           <ScalarProperty Name="degree" ColumnName="degree" />
           <ScalarProperty Name="startdate" ColumnName="startdate" />

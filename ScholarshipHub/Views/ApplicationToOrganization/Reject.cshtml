@@ -1,0 +1,65 @@
+﻿@model ScholarshipHub.Models.ApplicationsToOrganization
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Reject</title>
+</head>
+<body>
+    <h3>Are you sure you want to Reject this?</h3>
+    <div>
+        <h4>Applications To Organization</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.OrganizationOffer.title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OrganizationOffer.title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Student.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Student.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Motivation)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Motivation)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentBio)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StudentBio)
+            </dd>
+
+                   
+
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Reject" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "StudentApplication")
+            </div>
+        }
+    </div>
+</body>
+</html>

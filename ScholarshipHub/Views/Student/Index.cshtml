@@ -40,94 +40,129 @@
             }
 </style>
 <body>
+
     <div class="topnav">
         <a class="active" href="/Student/Index">Home</a>
         <a href="/Student/UniversityOffer">Offered By University</a>
-        <a href="/Studet/OrganizationOffer">Offered by Organization</a>
-        <a href="/Student">@Model.Name</a>
-        <a href="">Log Out</a>
+        <a href="/Student/OrganizationOffer">Offered by Organization</a>
+        <a href="/Student/ApplicationsToUniversity">Application To University</a>
+        <a href="/Student/ApplicationsToOrganization">Application To Organization</a>
+        <a href="/Student">@Session["studentName"]</a>
+        <a href="/Logout">Log Out</a>
     </div>
-    <div>
-        <h4>Student</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
+    <center>
+        <div>
+            <table>
 
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
+                <th colspan="2"><h4>Profile</h4></th>
+                <tr>
+                    <td><cener><a href="#">Home</a></cener></td>
+                    <td>
+                        <center><a href="/Student/edit/@Model.id">Edit</a></center>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </dt>
+                    </td>
+                    <td>
+                        <dd>
+                            @Html.DisplayFor(model => model.Name)
+                        </dd>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </dt>
+                    </td>
+                    <td>
+                        <dd>
+                            @Html.DisplayFor(model => model.Email)
+                        </dd>
+                    </td>
+                </tr>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Email)
-            </dt>
+                <tr>
+                    <td>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Username)
+                        </dt>
+                    </td>
+                    <td>
+                        <dd>
+                            @Html.DisplayFor(model => model.Username)
+                        </dd>
 
-            <dd>
-                @Html.DisplayFor(model => model.Email)
-            </dd>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Gender)
+                        </dt>
+                    </td>
+                    <td>
+                        <dd>
+                            @Html.DisplayFor(model => model.Gender)
+                        </dd>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <dt>
+                            DOB:
+                        </dt>
+                    </td>
+                    <td>
+                        <dd>
+                            @Html.DisplayFor(model => model.DateOfBirth).ToString().Substring(0, 9)
+                        </dd>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DesiredDegree)
+                        </dt>
+                    </td>
+                    <td>
+                        <dd>
+                            @Html.DisplayFor(model => model.DesiredDegree)
+                        </dd>
+                    </td>
+                </tr>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Username)
-            </dt>
+                <tr>
+                    <td>Picture: </td>
+                    <td>
+                        <center>
+                            <img src="~/Media/Images/@Model.ImagePath" height="100" width="100" />
+                        </center>
+                    </td>
+                </tr>
 
-            <dd>
-                @Html.DisplayFor(model => model.Username)
-            </dd>
+                <tr>
+                    <td>CV: </td>
+                    <td colspan="2">
+                        <center>
+                            <a href="~/Media/Files/@Model.CVPath">
+                                <iframe src="~/Media/Files/@Model.CVPath" height="200%" width="100%">
+                            </a>
+                        </center>
+                    </td>
+                </tr>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Password)
-            </dt>
 
-            <dd>
-                @Html.DisplayFor(model => model.Password)
-            </dd>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Gender)
-            </dt>
+            </table>
+        </div>
+    </center>
 
-            <dd>
-                @Html.DisplayFor(model => model.Gender)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.DateOfBirth)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.DateOfBirth)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.ImagePath)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.ImagePath)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.CVPath)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.CVPath)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.DesiredDegree)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.DesiredDegree)
-            </dd>
-
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
 </body>
 </html>
+

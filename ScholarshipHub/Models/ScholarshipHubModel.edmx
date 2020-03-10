@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="ScholarshipHubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+          <Property Name="salary" Type="int" />
+          <Property Name="salarystatus" Type="int" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="ApplicationsToOrganization">
           <Key>
             <PropertyRef Name="id" />
@@ -15,7 +27,7 @@
           <Property Name="Motivation" Type="varchar(max)" Nullable="false" />
           <Property Name="StudentBio" Type="varchar(max)" Nullable="false" />
           <Property Name="AplicationStatus" Type="int" />
-          <Property Name="ApplicationInformation" Type="varbinary(max)" />
+          <Property Name="ApplicationInformation" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="ApplictionsToUniversity">
           <Key>
@@ -38,7 +50,7 @@
           <Property Name="ToUser" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Subject" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Body" Type="varchar(max)" Nullable="false" />
-          <Property Name="Time" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Time" Type="datetime" />
         </EntityType>
         <EntityType Name="Organisations">
           <Key>
@@ -63,8 +75,6 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="organizationName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="OfferUsername" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="degree" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="startdate" Type="varchar" MaxLength="50" Nullable="false" />
@@ -214,6 +224,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ScholarshipHubModelStoreContainer">
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ApplicationsToOrganization" EntityType="Self.ApplicationsToOrganization" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ApplictionsToUniversity" EntityType="Self.ApplictionsToUniversity" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Messeges" EntityType="Self.Messeges" Schema="dbo" store:Type="Tables" />
@@ -254,6 +265,18 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ScholarshipHubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="salary" Type="Int32" />
+          <Property Name="salarystatus" Type="Int32" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="ApplicationsToOrganization">
           <Key>
             <PropertyRef Name="id" />
@@ -264,7 +287,7 @@
           <Property Name="Motivation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="StudentBio" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="AplicationStatus" Type="Int32" />
-          <Property Name="ApplicationInformation" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="ApplicationInformation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="OrganizationOffer" Relationship="Self.FK_ApplicationsToOrganization_OrganizationOffers" FromRole="ApplicationsToOrganization" ToRole="OrganizationOffers" />
           <NavigationProperty Name="Student" Relationship="Self.FK_ApplicationsToOrganization_Students" FromRole="ApplicationsToOrganization" ToRole="Students" />
         </EntityType>
@@ -291,7 +314,7 @@
           <Property Name="ToUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Time" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Time" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="Organisation">
           <Key>
@@ -317,8 +340,6 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="organizationName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="OfferUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="degree" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="startdate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -475,6 +496,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ScholarshipHubDataContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="ApplicationsToOrganizations" EntityType="Self.ApplicationsToOrganization" />
           <EntitySet Name="ApplictionsToUniversities" EntityType="Self.ApplictionsToUniversity" />
           <EntitySet Name="Messeges" EntityType="Self.Messege" />
@@ -516,6 +538,19 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ScholarshipHubModelStoreContainer" CdmEntityContainer="ScholarshipHubDataContext">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="ScholarshipHubModel.Admin">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="salarystatus" ColumnName="salarystatus" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="ApplicationsToOrganizations">
             <EntityTypeMapping TypeName="ScholarshipHubModel.ApplicationsToOrganization">
               <MappingFragment StoreEntitySet="ApplicationsToOrganization">
@@ -577,8 +612,6 @@
             <EntityTypeMapping TypeName="ScholarshipHubModel.OrganizationOffer">
               <MappingFragment StoreEntitySet="OrganizationOffers">
                 <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="organizationName" ColumnName="organizationName" />
-                <ScalarProperty Name="OfferUsername" ColumnName="OfferUsername" />
                 <ScalarProperty Name="title" ColumnName="title" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
                 <ScalarProperty Name="startdate" ColumnName="startdate" />

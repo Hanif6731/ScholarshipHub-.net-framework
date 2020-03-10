@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ScholarshipHub.Models.OrganizationOffer>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Offerlist</title>
+</head>
+<body>
+    <center>
+        <br/>
+        <table class="table" border="2">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.degree)
+                </th>
+                
+                <th>
+                    @Html.DisplayNameFor(model => model.percentage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.universityName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.totalseat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Organisation.Name)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.degree)
+                    </td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.percentage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.universityName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.totalseat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Organisation.Name)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        @Html.ActionLink("Back", "Index") 
+    </center>
+</body>
+</html>

@@ -19,6 +19,6 @@ namespace ScholarshipHub.Models
         public string ToUser { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
-        public byte[] Time { get; set; }
+        public Nullable<System.DateTime> Time { get; set; }
     }
 }

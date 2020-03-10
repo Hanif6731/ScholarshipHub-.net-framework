@@ -1,0 +1,122 @@
+﻿@model ScholarshipHub.Models.Organisation
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Address</title>
+</head>
+<body>
+    <center>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Organisation</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.id)
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.AddressLine, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.AddressLine, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.AddressLine, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Postal, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Postal, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Postal, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @{
+                        List<SelectListItem> listItems = new List<SelectListItem>();
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Bangladesh",
+                            Value = "Bangladesh",
+                            Selected = true
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "India",
+                            Value = "India",
+
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = " United States",
+                            Value = " United States",
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = " Indonesia",
+                            Value = " Indonesia",
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "Pakistan",
+                            Value = "Pakistan",
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "China",
+                            Value = "China",
+                        });
+                    }
+
+                    @Html.DropDownListFor(model => model.Country, listItems, " Select A Country")
+                </div>
+            </div>
+
+
+
+            <input type="hidden" name="Password" value="@Model.Password" />
+            <input type="hidden" name="Name" value="@Model.Name" />
+            <input type="hidden" name="Username" value="@Model.Username" />
+            <input type="hidden" name="Email" value="@Model.Email" />
+            <input type="hidden" name="Contact" value="@Model.Contact" />
+            <input type="hidden" name="ApprovalPath" value="@Model.ApprovalPath" />
+
+            <input type="hidden" name="Information" value="@Model.Information" />
+            <input type="hidden" name="Description" value="@Model.Description" />
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to Profile", "Profile")
+    </div>
+    <h5>@TempData["error"]</h5>
+</body>
+</center>
+</html>

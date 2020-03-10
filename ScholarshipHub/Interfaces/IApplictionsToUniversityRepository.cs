@@ -10,6 +10,6 @@ namespace ScholarshipHub.Interfaces
     interface IApplictionsToUniversityRepository : IRepository<ApplictionsToUniversity>
     {
         IEnumerable<ApplictionsToUniversity> GetAll(int uniId);
-
+        IEnumerable<ApplictionsToUniversity> GetStudentsApplicationToUniversity(int studentId);
     }
 }

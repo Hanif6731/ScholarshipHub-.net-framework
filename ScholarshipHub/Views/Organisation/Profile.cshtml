@@ -1,0 +1,242 @@
+﻿@model ScholarshipHub.Models.Organisation
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Profile</title>
+</head>
+<body>
+    <center>
+        <table border="1" width="350">
+
+            <div>
+                <h4>Organisation Profile</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <tr>
+                        <td colspan="2">
+                            <br><center>
+                                <b>
+                                    Personal Information
+                                </b>
+                            </center>
+
+                            </br>
+                        </td>
+                        @Html.ActionLink("Logout", "Logout", "Logout")
+
+                    </tr>
+                    <tr>
+                        <td>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    </td>
+                    <td>
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+                    </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Username)
+                    </dt>
+                    </td>
+                    <td>
+                    <dd>
+                        @Html.DisplayFor(model => model.Username)
+                    </dd>
+                    </td>
+                    </tr>
+
+
+
+
+                    <tr>
+                        <td>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                    </td>
+                    <td>
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+                    </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Contact)
+                    </dt>
+                    </td>
+                    <td>
+                    <dd>
+                        @Html.DisplayFor(model => model.Contact)
+                    </dd>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </dt>
+                    </td>
+                    <td>
+                    <dd>
+                        @Html.DisplayFor(model => model.Description)
+                    </dd>
+                    </td>
+                    <tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <center>
+                                <br>
+                                <b>
+                                    Address Information
+                                </b>
+                            </center></br>
+                        </td>
+                    </tr>
+                    <dt>
+
+<tr>
+                <td>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.AddressLine)
+                </td>
+                <td>
+                    <dd>
+                        @Html.DisplayFor(model => model.AddressLine)
+                    </dd>
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.City)
+                </td>
+                <td>
+                    <dd>
+                        @Html.DisplayFor(model => model.City)
+                    </dd>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Postal)
+                </td>
+                <td>
+                    <dd>
+                        @Html.DisplayFor(model => model.Postal)
+                    </dd>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Country)
+                </td>
+                <td>
+                    <dd>
+                        @Html.DisplayFor(model => model.Country)
+                    </dd>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <br>
+                    <center>
+                        <b>
+                            Attachment
+                        </b>
+                    </center>
+                    </br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Goverment Approval:
+                </td>
+                <td>
+                    <a href="/Organization/Approval/@Html.DisplayFor(model => model.ApprovalPath)">View Approval</a>
+                </td>
+            </tr>
+
+            <tr aria-rowspan="6">
+                <td>
+                    Background Information:
+                </td>
+                <td>
+                    <a href="/Organization/Information/@Html.DisplayFor(model => model.Information)">View Information</a>
+                </td>
+            </tr>
+            
+                <td colspan="2">
+                    <b>
+                        <center>
+                            @Html.ActionLink(" Update Personal Information", "Personal") 
+                        </center>
+                    </b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <b>
+                        <center>
+                           
+                            @Html.ActionLink(" Update Address Information", "Address")
+                        </center>
+                    </b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <b>
+                        <center>
+
+                            @Html.ActionLink(" Update Attachment", "Attachment")
+                        </center>
+                    </b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <b>
+                        <center>
+                            @Html.ActionLink(" Update Password", "Password")
+                        </center>
+                    </b>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <b>
+                        <center>
+                            @Html.ActionLink("Back to Home", "Index")
+                        </center>
+                    </b>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>

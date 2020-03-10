@@ -1,0 +1,90 @@
+﻿@model ScholarshipHub.Models.OrganizationOffer
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>OrganizationOffer</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.title)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.title)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.degree)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.degree)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.startdate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.startdate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.deadline)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.deadline)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.percentage)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.percentage)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.universityName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.universityName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.totalseat)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.totalseat)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Organisation.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Organisation.Name)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Offerlist")
+    </p>
+</body>
+</html>

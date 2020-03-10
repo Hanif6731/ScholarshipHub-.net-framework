@@ -20,7 +20,7 @@ namespace ScholarshipHub.Models
         public string Motivation { get; set; }
         public string StudentBio { get; set; }
         public Nullable<int> AplicationStatus { get; set; }
-        public byte[] ApplicationInformation { get; set; }
+        public string ApplicationInformation { get; set; }
     
         public virtual OrganizationOffer OrganizationOffer { get; set; }
         public virtual Student Student { get; set; }

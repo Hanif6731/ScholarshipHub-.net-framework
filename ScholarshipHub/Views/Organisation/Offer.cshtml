@@ -1,0 +1,192 @@
+﻿@model ScholarshipHub.Models.OrganizationOffer
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Offer</title>
+</head>
+<body>
+    <center>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>OrganizationOffer</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.title, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.title, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.degree, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @{
+                        List<SelectListItem> listItemd = new List<SelectListItem>();
+                        listItemd.Add(new SelectListItem
+                        {
+                            Text = "BCS Degree",
+                            Value = "BCS Degree",
+
+                        });
+                        listItemd.Add(new SelectListItem
+                        {
+                            Text = "Master Degree",
+                            Value = "Master Degree",
+
+                        });
+                        listItemd.Add(new SelectListItem
+                        {
+                            Text = "PHD Degree",
+                            Value = "Master Degree",
+                        });
+                       
+
+                    }
+
+                    @Html.DropDownListFor(model => model.degree, listItemd, " Select to Degree")
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.startdate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.startdate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.startdate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.deadline, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.deadline, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.deadline, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.percentage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+
+                    @{
+                        List<SelectListItem> listItemp = new List<SelectListItem>();
+                        listItemp.Add(new SelectListItem
+                        {
+                            Text = "20%",
+                            Value = "20%",
+
+                        });
+                        listItemp.Add(new SelectListItem
+                        {
+                            Text = "40%",
+                            Value = "40%",
+
+                        });
+                        listItemp.Add(new SelectListItem
+                        {
+                            Text = "60%",
+                            Value = "60%",
+                        });
+                        listItemp.Add(new SelectListItem
+                        {
+                            Text = "80%",
+
+                            Value = "80%",
+                        });
+                        listItemp.Add(new SelectListItem
+                        {
+                            Text = "100%",
+                            Value = "100%",
+                        });
+
+                    }
+
+                    @Html.DropDownListFor(model => model.percentage, listItemp, " Select Percentage to Offer")
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.universityName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @{
+                        List<SelectListItem> listItems = new List<SelectListItem>();
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "University of Oxford",
+                            Value = "University of Oxford",
+
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "University of Cambridge",
+                            Value = "University of Cambridge",
+
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = " The Open University",
+                            Value = " The Open University",
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "The University of Edinburgh",
+                            Value = " The University of Edinburgh",
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "The University of Manchester",
+                            Value = "The University of Manchester",
+                        });
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = "University of Leeds",
+                            Value = "University of Leeds",
+                        });
+                    }
+
+                    @Html.DropDownListFor(model => model.universityName, listItems, " Select A University")
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.totalseat, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.totalseat, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.totalseat, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.organization_id, "organization_id", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.organization_id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.organization_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        }
+
+        <div>
+            @Html.ActionLink("Back to Home", "Index")
+        </div>
+    </center>
+</body>
+</html>

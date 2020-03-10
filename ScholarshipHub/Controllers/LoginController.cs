@@ -1,6 +1,7 @@
 ﻿using ScholarshipHub.Interfaces;
 using ScholarshipHub.Models;
 using ScholarshipHub.Repository;
+using ScholarshipHub.Validation;
 using System.Web.Mvc;
 
 namespace ScholarshipHub.Controllers
@@ -22,28 +23,40 @@ namespace ScholarshipHub.Controllers
         [HttpPost]
         public ActionResult Login(User u)
         {
-            if (userRepo.Get(u) == 1)
-            {
-                var user = userRepo.GetUser(u.Username);
-                Session["Username"] = u.Username;
-                if (user.Status == 0)
+            if(!Validate.IsNullOrWhiteSpace(u.Username) && !Validate.IsNullOrWhiteSpace(u.Password)) 
+            { 
+                if (userRepo.Get(u) == 1)
                 {
-                    return RedirectToAction("Index", "Admin");
+                    var user = userRepo.GetUser(u.Username);
+                    Session["Username"] = u.Username;
+                    if (user.Status == 0)
+                    {
+                        return RedirectToAction("Index", "Admin");
+                    }
+                    else if (user.Status == 1)
+                    {
+                        return RedirectToAction("Index", "Student");
+                    }
+                    else if (user.Status == 2)
+                    {
+                        return RedirectToAction("Index", "University");
+                    }
+                    else if (user.Status == 3)
+                    {
+                        return RedirectToAction("Index", "Organisation");
+                    }
                 }
-                else if (user.Status == 1)
+                else
                 {
-                    return RedirectToAction("Index", "Student");
-                }
-                else if (user.Status == 2)
-                {
-                    return RedirectToAction("Index", "University");
-                }
-                else if (user.Status == 3)
-                {
-                    return RedirectToAction("Index", "Organization");
+                    TempData["error"] = "Wrong Credentials!!";
                 }
             }
-            TempData["error"] = "Wrong Credentials!!";
+            else
+            {
+                TempData["error"] = "Credentials are empty!!";
+
+            }
+            
             return RedirectToAction("Login");
             //return Content("Login Under development... admin status 0, student status 1, university status 2, organisation status 3... happy coding");
         }
@@ -51,7 +64,7 @@ namespace ScholarshipHub.Controllers
         [HttpGet]
         public ActionResult Logout()
         {
-            return RedirectToAction("Index");
+            return RedirectToAction("Logout","Logout");
         }
         [HttpGet]
 

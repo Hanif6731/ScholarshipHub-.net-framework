@@ -1,0 +1,83 @@
+﻿@model ScholarshipHub.Models.Student
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Student</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+  
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DateOfBirth)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DateOfBirth)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </dt>
+    
+            <dd>
+                <img src="~/Media/Images/@Model.ImagePath" width="300" height="300" />
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CVPath)
+            </dt>
+    
+            <dd>
+                <a href="/Media/Files/@Html.DisplayFor(model => model.CVPath)">Student Path</a>
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DesiredDegree)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DesiredDegree)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+       
+        @Html.ActionLink("Back to List", "StudentApplication")
+    </p>
+</body>
+</html>

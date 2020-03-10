@@ -25,7 +25,15 @@ namespace ScholarshipHub.Controllers
         [HttpPost]
         public ActionResult Create(UniversityOffer offer)
         {
-            uniOfferRepo.Insert(offer);
+            try
+            {
+                uniOfferRepo.Insert(offer);
+            }
+            catch
+            {
+                TempData["error"] = "Some fields are empty";
+                return RedirectToAction("Create");
+            }
             return RedirectToAction("Index");
         }
 
@@ -37,7 +45,15 @@ namespace ScholarshipHub.Controllers
         [HttpPost]
         public ActionResult Edit(UniversityOffer offer)
         {
-            uniOfferRepo.Update(offer);
+            try
+            {
+                uniOfferRepo.Update(offer);
+            }
+            catch
+            {
+                TempData["error"] = "Some fields are empty";
+                return RedirectToAction("Edit",new { offer.id });
+            }
             return RedirectToAction("Index");
         }
 

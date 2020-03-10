@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ScholarshipHubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admins">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="name" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="salary" Type="int" />
+    <Property Name="salarystatus" Type="int" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="ApplicationsToOrganization">
     <Key>
       <PropertyRef Name="id" />
@@ -10,7 +22,7 @@
     <Property Name="Motivation" Type="varchar(max)" Nullable="false" />
     <Property Name="StudentBio" Type="varchar(max)" Nullable="false" />
     <Property Name="AplicationStatus" Type="int" />
-    <Property Name="ApplicationInformation" Type="varbinary(max)" />
+    <Property Name="ApplicationInformation" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="ApplictionsToUniversity">
     <Key>
@@ -33,7 +45,7 @@
     <Property Name="ToUser" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Subject" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Body" Type="varchar(max)" Nullable="false" />
-    <Property Name="Time" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="Time" Type="datetime" />
   </EntityType>
   <EntityType Name="Organisations">
     <Key>
@@ -58,8 +70,6 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="organizationName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="OfferUsername" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="degree" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="startdate" Type="varchar" MaxLength="50" Nullable="false" />
@@ -209,6 +219,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="ScholarshipHubModelStoreContainer">
+    <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ApplicationsToOrganization" EntityType="Self.ApplicationsToOrganization" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ApplictionsToUniversity" EntityType="Self.ApplictionsToUniversity" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Messeges" EntityType="Self.Messeges" Schema="dbo" store:Type="Tables" />

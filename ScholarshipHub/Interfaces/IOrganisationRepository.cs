@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ScholarshipHub.Interfaces
 {
-    interface IOrganisationRepository:IRepository<Organisation>
+    interface IOrganisationRepository : IRepository<Organisation>
     {
         Organisation GetOrganisation(string username);
         void UpdatePersonal(Organisation organisation);

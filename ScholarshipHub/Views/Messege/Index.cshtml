@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ScholarshipHub.Models.Messege>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table width="100%">
+        <tr>
+            <td>
+                @Html.ActionLink("Compose New", "Create")
+            </td>
+            <td align="right">@Html.ActionLink("Home", "Index", "University")|@Html.ActionLink("Logout", "Logout", "Logout")</td>
+        </tr>
+    </table>
+
+    
+    <table class="table" border="1">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FromUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToUser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FromUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToUser)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Subject)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
