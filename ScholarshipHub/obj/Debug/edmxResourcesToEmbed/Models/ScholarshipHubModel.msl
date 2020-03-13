@@ -9,6 +9,7 @@
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="password" ColumnName="password" />
           <ScalarProperty Name="salary" ColumnName="salary" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
           <ScalarProperty Name="salarystatus" ColumnName="salarystatus" />
           <ScalarProperty Name="email" ColumnName="email" />
         </MappingFragment>

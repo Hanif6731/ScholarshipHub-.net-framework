@@ -46,7 +46,7 @@ G:\programms\c#\web\ScholarshipHubSln\ScholarshipHub\bin\System.Web.Webpages.Raz
 G:\programms\c#\web\ScholarshipHubSln\ScholarshipHub\bin\System.Web.Helpers.xml
 G:\programms\c#\web\ScholarshipHubSln\ScholarshipHub\bin\System.Web.Mvc.xml
 G:\programms\c#\web\ScholarshipHubSln\ScholarshipHub\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\programms\c#\web\ScholarshipHubSln\ScholarshipHub\obj\Debug\ScholarshipHub.csprojAssemblyReference.cache
 G:\programms\c#\web\ScholarshipHubSln\ScholarshipHub\obj\Debug\ScholarshipHub.csproj.CopyComplete
 G:\programms\c#\web\ScholarshipHubSln\ScholarshipHub\obj\Debug\ScholarshipHub.dll
 G:\programms\c#\web\ScholarshipHubSln\ScholarshipHub\obj\Debug\ScholarshipHub.pdb
-G:\programms\c#\web\ScholarshipHubSln\ScholarshipHub\obj\Debug\ScholarshipHub.csprojAssemblyReference.cache

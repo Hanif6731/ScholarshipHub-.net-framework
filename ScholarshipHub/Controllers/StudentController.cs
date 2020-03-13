@@ -99,7 +99,7 @@ namespace ScholarshipHub.Controllers
             IApplicationsToOrganizationRepository appToOrgRepo = new ApplicationsToOrganiztionRepository();
             appToOrgRepo.Insert(applyToOrg);
 
-            return RedirectToAction("ApplationsToOrganization", "Student");
+            return RedirectToAction("ApplicationsToOrganization", "Student");
         }
 
         public ActionResult ApplicationsToUniversity()

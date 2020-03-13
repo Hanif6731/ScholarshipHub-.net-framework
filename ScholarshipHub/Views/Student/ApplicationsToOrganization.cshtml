@@ -47,59 +47,59 @@
         <a href="/Student/ApplicationsToUniversity">Application To University</a>
         <a href="/Student/ApplicationsToOrganization">Application To Organization</a>
         <a href="/Student">@Session["studentName"]"</a>
-        <a href="">Log Out</a>
+        <a href="/Logout/Logout">Log Out</a>
     </div>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Motivation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StudentBio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AplicationStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ApplicationInformation)
-            </th>
-            
-            <th>
-                @Html.DisplayNameFor(model => model.Student.Name)
-            </th>
-            <th></th>
-        </tr>
 
-        @foreach (var item in Model)
-        {
+    <center>
+        <table class="table" border="1">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Motivation)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StudentBio)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AplicationStatus)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ApplicationInformation)
-                </td>
-                
-                <td>
-                    @Html.DisplayFor(modelItem => item.Student.Name)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
-                </td>
-            </tr>
-        }
 
-    </table>
+                <th>
+                    Application Status
+                </th>
+                <th>
+                    Message
+                </th>
+                <th>
+                    Offer Title
+                </th>
+                <th>
+                    Organization Name
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+
+            <td>
+                @if (item.AplicationStatus == null)
+                {
+                    <p>Pending</p>
+                }
+                else if (item.AplicationStatus == 0)
+                {
+                    <p>Rejected</p>
+                }
+                else if (item.AplicationStatus == 1)
+                {
+                    <p>Accepted</p>
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ApplicationInformation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrganizationOffer.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrganizationOffer.Organisation.Name)
+            </td>
+        </tr>
+            }
+
+        </table>
+    </center>
 </body>
 </html>

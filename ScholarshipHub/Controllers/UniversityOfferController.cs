@@ -27,6 +27,16 @@ namespace ScholarshipHub.Controllers
         {
             try
             {
+                if (offer.Deadline < DateTime.Today || offer.StartDate < DateTime.Today)
+                {
+                    TempData["error"] = "Start date and deadline should greater or equal to today";
+                    return RedirectToAction("Create");
+                }
+                if (offer.Deadline<offer.StartDate)
+                {
+                    TempData["error"] = "deadline should greater than statrtdate";
+                    return RedirectToAction("Create");
+                }
                 uniOfferRepo.Insert(offer);
             }
             catch
@@ -47,6 +57,17 @@ namespace ScholarshipHub.Controllers
         {
             try
             {
+
+                if (offer.Deadline < DateTime.Today || offer.StartDate < DateTime.Today)
+                {
+                    TempData["error"] = "Start date and deadline should greater or equal to today";
+                    return RedirectToAction("Edit",new { offer.id});
+                }
+                if (offer.Deadline < offer.StartDate)
+                {
+                    TempData["error"] = "deadline should greater than statrtdate";
+                    return RedirectToAction("Edit", new { offer.id });
+                }
                 uniOfferRepo.Update(offer);
             }
             catch

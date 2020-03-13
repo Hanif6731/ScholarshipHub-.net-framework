@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #105A43;
+        }
+
+        li {
+            float: left;
+            width: 25%;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 25px;
+                text-decoration: none;
+            }
+
+                li a:hover {
+                    background-color: #06261D;
+                }
+    </style>
+</head>
+<body>
+    <table border="0" width="100%">
+
+        <tr class="heading">
+            <td>
+                <p><font style="font-style: italic;" color="#313D3A" size="8"><b>Scholarship Portal</b></font></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><a href="/admin">Home</a></li>
+                    <li><a href="/admin/myaccount">My Account</a></li>
+                    <li><a href="/admin/clearpayment"> Admin Payment</a></li>
+                    <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </td>
+        </tr>
+
+    </table>
+    <fieldset>
+        <legend>Withdraw</legend>
+        <center>
+            <form method="post">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <table border="0">
+                    <tr>
+                        <td height="50px">Withdraw Amount </td>
+                        <td height="50px"><input type="number" name="withdrawamount" max="" min="500" value=""></td>
+                        <br>
+                    </tr>
+                    <tr>
+                        <td><a href="/admin/myaccount"><button type="button" formaction="">Back</button></a></td>
+                        <td><input type="submit" name="submit" value="Withdraw"> </td>
+                    </tr>
+                </table>
+            </form>
+        </center>
+
+    </fieldset>
+
+
+
+
+</body>
+</html>

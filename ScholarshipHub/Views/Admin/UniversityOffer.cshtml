@@ -1,0 +1,131 @@
+﻿@model IEnumerable<ScholarshipHub.Models.UniversityOffer>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UniversityOffer</title>
+
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #105A43;
+        }
+
+        li {
+            float: left;
+            width: 14%;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 25px;
+                text-decoration: none;
+            }
+
+                li a:hover {
+                    background-color: #06261D;
+                }
+    </style>
+
+
+</head>
+<body>
+
+    <table border="0" width="100%">
+
+        <tr class="heading">
+            <td>
+                <p><font style="font-style: italic;" color="#313D3A" size="8"><b>Scholarship Hub</b></font></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><a href="/Admin">Home</a></li>
+                    <li><a href="/Admin/AdminPanel">Admin Panel</a></li>
+                    <li><a href="/Admin/payment">Payment</a></li>
+                    <li><a href="/Admin/modifyscholarship">Modify Scholarship</a></li>
+                    <li><a href="/Admin/analyse">Insights</a></li>
+                    <li><a href="/Admin/messages">Messages</a></li>
+                    <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <br />
+    <br />
+    <p align="right">
+        @Html.ActionLink("Organization Offers", "OrganizationOffer")
+    </p>
+    <table class="table" border="1" align="center">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfferedDegree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Requirements)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Deadline)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.University.Name)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OfferedDegree)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Requirements)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Deadline)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.University.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "UniversityOfferDelete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

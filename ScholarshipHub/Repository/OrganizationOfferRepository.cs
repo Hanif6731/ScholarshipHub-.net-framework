@@ -9,5 +9,9 @@ namespace ScholarshipHub.Repository
 {
     public class OrganizationOfferRepository : Repository<OrganizationOffer>, IOrganizationOfferRepository
     {
+
+
     }
+
+
 }

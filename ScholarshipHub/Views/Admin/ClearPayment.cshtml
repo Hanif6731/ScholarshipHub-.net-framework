@@ -1,0 +1,109 @@
+﻿@model IEnumerable<ScholarshipHub.Models.Admin>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Admins</title>
+
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #105A43;
+        }
+
+        li {
+            float: left;
+            width: 25%;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 25px;
+                text-decoration: none;
+            }
+
+                li a:hover {
+                    background-color: #06261D;
+                }
+    </style>
+</head>
+<body>
+    <table border="0" width="100%">
+
+        <tr class="heading">
+            <td>
+                <p><font style="font-style: italic;" color="#313D3A" size="8"><b>Scholarship Hub</b></font></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><a href="/admin">Home</a></li>
+                    <li><a href="/admin/Myaccount">My Account</a></li>
+                    <li><a href="/admin/clearpayment"> Admin Payment</a></li>
+                    <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </td>
+        </tr>
+
+    </table>
+    <h3 align="center">
+        Admins
+    </h3>
+    <table class="table" align="center" border="1">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.username)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.salary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.username)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td>
+
+                    @Html.ActionLink("clear", "clear", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

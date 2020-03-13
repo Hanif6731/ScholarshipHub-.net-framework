@@ -10,5 +10,6 @@ namespace ScholarshipHub.Interfaces
     interface IUniversityOfferRepository:IRepository<UniversityOffer>
     {
         IEnumerable<UniversityOffer> GetAll(int id);
+
     }
 }

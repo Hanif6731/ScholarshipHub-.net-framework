@@ -5,12 +5,13 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="username" Type="varchar" MaxLength="50" />
-    <Property Name="name" Type="varchar" MaxLength="50" />
-    <Property Name="password" Type="varchar" MaxLength="50" />
-    <Property Name="salary" Type="int" />
-    <Property Name="salarystatus" Type="int" />
-    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="salary" Type="int" Nullable="false" />
+    <Property Name="balance" Type="int" Nullable="false" />
+    <Property Name="salarystatus" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="ApplicationsToOrganization">
     <Key>

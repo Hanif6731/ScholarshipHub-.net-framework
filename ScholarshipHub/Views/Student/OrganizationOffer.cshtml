@@ -47,75 +47,77 @@
         <a href="/Student/ApplicationsToUniversity">Application To University</a>
         <a href="/Student/ApplicationsToOrganization">Application To Organization</a>
         <a href="/Student">@Session["studentName"]</a>
-        <a href="">Log Out</a>
+        <a href="/logout/Logout">Log Out</a>
     </div>
     <p>
-        @Html.ActionLink("Create New", "Create")
+        
     </p>
-    <table class="table">
-        <tr>
-            
-            <th>
-                @Html.DisplayNameFor(model => model.title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.degree)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.startdate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.deadline)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.percentage)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.universityName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.totalseat)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Organisation.Name)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
+    <center>
+        <table class="table" border="1">
             <tr>
                 
-                <td>
-                    @Html.DisplayFor(modelItem => item.title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.degree)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.startdate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.deadline)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.percentage)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.universityName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.totalseat)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Organisation.Name)
-                </td>
-                <td>
-                    @Html.ActionLink("Apply", "/ApplyToOrganization", new { id = item.id })
-                </td>
-            </tr>
-        }
 
-    </table>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Degree
+                </th>
+                <th>
+                    Application Start From
+                </th>
+                <th>
+                    Application Deadline
+                </th>
+                <th>
+                    Percentage
+                </th>
+                <th>
+                    University Name
+                </th>
+                <th>
+                    Total Seat
+                </th>
+
+                <th>
+                    Click Here to Apply
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.degree)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.startdate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.deadline)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.percentage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.universityName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.totalseat)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Apply", "/ApplyToOrganization", new { id = item.id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </center>
 </body>
 </html>

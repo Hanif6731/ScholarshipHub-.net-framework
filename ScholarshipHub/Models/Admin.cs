@@ -18,8 +18,9 @@ namespace ScholarshipHub.Models
         public string username { get; set; }
         public string name { get; set; }
         public string password { get; set; }
-        public Nullable<int> salary { get; set; }
-        public Nullable<int> salarystatus { get; set; }
+        public int salary { get; set; }
+        public int balance { get; set; }
+        public int salarystatus { get; set; }
         public string email { get; set; }
     }
 }

@@ -1,0 +1,111 @@
+﻿@model ScholarshipHub.Models.Admin
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MyAccount</title>
+
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #105A43;
+        }
+
+        li {
+            float: left;
+            width: 25%;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 25px;
+                text-decoration: none;
+            }
+
+                li a:hover {
+                    background-color: #06261D;
+                }
+    </style>
+</head>
+<body>
+
+    <table border="0" width="100%">
+
+        <tr class="heading">
+            <td>
+                <p><font style="font-style: italic;" color="#313D3A" size="8"><b>Scholarship Hub</b></font></p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li><a href="/admin">Home</a></li>
+                    <li><a href="/admin/Myaccount">My Account</a></li>
+                    <li><a href="/admin/clearpayment"> Admin Payment</a></li>
+                    <li><a href="/logout">Log Out</a></li>
+                </ul>
+            </td>
+        </tr>
+
+    </table>
+    <div>
+        <h4>Admin</h4>
+        <hr />
+        <dl class="dl-horizontal" align="center">
+            <dt>
+                @Html.DisplayNameFor(model => model.username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.username)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.salary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.salary)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.balance)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.balance)
+            </dd>
+
+
+
+        </dl>
+    </div>
+    <p align="center">
+        @Html.ActionLink("Withdraw", "withdraw") |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

@@ -11,7 +11,8 @@ namespace ScholarshipHub.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+
     public partial class UniversityOffer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,9 +24,11 @@ namespace ScholarshipHub.Models
         public int id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        [DisplayName("Offered Degree")]
         public string OfferedDegree { get; set; }
         public string Requirements { get; set; }
         public System.DateTime Deadline { get; set; }
+        [DisplayName("Starting Date")]
         public System.DateTime StartDate { get; set; }
         public int UniversityId { get; set; }
     

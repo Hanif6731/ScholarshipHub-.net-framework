@@ -34,9 +34,9 @@ namespace ScholarshipHub.Models
         public string ApprovalPath { get; set; }
         public string Information { get; set; }
         public string Description { get; set; }
+
         public HttpPostedFileBase ApprovalFile { get; set; }
         public HttpPostedFileBase InformationFile { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrganizationOffer> OrganizationOffers { get; set; }
     }
